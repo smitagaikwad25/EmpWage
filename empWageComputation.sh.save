@@ -4,28 +4,32 @@ empWagePerHr=20
 empFullTime=1
 empPartTime=2
 dayzPerMonth=20
-TotalSalary=0
+
 function EmployeeManagement () {
 
-for (( i=1; i<=$dayzPerMonth; i++  ))
+for (( i=1 ; i<=dayzPerMonth ; i++  ))
 do	
 	random=$((RANDOM%3))	
 	case $random in 
 	$empFullTime )
-		empHr=8 ;;
-
+		empHr=8
+		echo "EMployee Full time Present";;
 	$empPartTime )
-		empHr=4 ;;
-	
+		empHr=4
+		echo "EMployee Part time Present";;
 	* )
-		empHr=0 ;;
+		empHr=0
+		echo "EMployee Absent";;
 	esac
 
 	salary=$(( $empWagePerHr * $empHr ))
-	echo "daily sal: = $salary "
-	TotalSalary=$(( $salary + $TotalSalary ))
-	done
-}
+	echo $salary
 
+
+done
+}
+	
 EmployeeManagement
-echo "Total Salary Per Month  is = $TotalSalary"
+
+
+
