@@ -4,11 +4,15 @@ empWagePerHr=20
 
 function EmployeeManagement ()
 {
-	Random=$((RANDOM%2))
+	Random=$((RANDOM%3))
 	if [ $Random -eq 1 ]
 	then
-		echo "Employee present" 
+		echo "Employee fulltime present" 
 		empHr=8
+	elif [ $Random -eq 2 ]
+	then 
+		echo "Emploee part time present"
+		empHr=4
 	else
 		echo "Employee Absent"
 	        empHr=0
@@ -19,5 +23,6 @@ EmployeeManagement
 
 salary=$(( $empWagePerHr * $empHr ))
 echo $salary
+
 
 
