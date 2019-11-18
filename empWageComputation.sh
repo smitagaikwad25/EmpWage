@@ -1,24 +1,24 @@
 #!/bin/bash -x
 echo "Welcome To EmpWageComputation"
 empWagePerHr=20
+empFullTime=1
+empPartTime=2
 
-function EmployeeManagement ()
-{
-	Random=$((RANDOM%3))
-	if [ $Random -eq 1 ]
-	then
-		echo "Employee fulltime present" 
+function EmployeeManagement () {
+	random=$((RANDOM%3))	
+	case $random in 
+	$empFullTime )
 		empHr=8
-	elif [ $Random -eq 2 ]
-	then 
-		echo "Emploee part time present"
+		echo "EMployee Full time Present";;
+	$empPartTime )
 		empHr=4
-	else
-		echo "Employee Absent"
-	        empHr=0
-	fi
+		echo "EMployee Part time Present";;
+	* )
+		empHr=0
+		echo "EMployee Absent";;
+	esac
 }
-
+	
 EmployeeManagement
 
 salary=$(( $empWagePerHr * $empHr ))
