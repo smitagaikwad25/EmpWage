@@ -1,19 +1,23 @@
+#!/bin/bash -x
 echo "Welcome To EmpWageComputation"
+empWagePerHr=20
 
-function attendance()
-{	
+function EmployeeManagement ()
+{
 	Random=$((RANDOM%2))
 	if [ $Random -eq 1 ]
 	then
-		echo "Employee is present"
+		echo "Employee present" 
+		empHr=8
 	else
-		echo "Employee is absent"
+		echo "Employee Absent"
+	        empHr=0
 	fi
 }
 
-function main()
-{
-	attendance
-}
+EmployeeManagement
 
-main
+salary=$(( $empWagePerHr * $empHr ))
+echo $salary
+
+
