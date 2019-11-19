@@ -28,14 +28,15 @@ function GetWorkingHours ()
 		EMP_HR=0 ;;
 	esac
 		
-	totalHr=$(($totalHr + $EMP_HR))
+	totalHr=$(( $totalHr + $EMP_HR ))
+	Salary=$(( $EMP_WAGE_PER_HR * $EMP_HR ))
+	echo "Daily Wages = " $Salary
+	totalSalary=$(( $EMP_WAGE_PER_HR * $totalHr  ))
 done
 	
 }
 
 GetWorkingHours 
 
- echo "Total work hours is " = $totalHr        
-
-
- 
+#	echo "Total work hours is = " $totalHr
+	echo "Total wages for month is =" $totalSalary
