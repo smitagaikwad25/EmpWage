@@ -1,31 +1,21 @@
-#!/bin/bash -x
+                                                                   #!/bin/bash -x
 echo "Welcome To EmpWageComputation"
-
-#constant
 EMP_WAGE_PER_HR=20 
 EMP_FULL_TIME=1
 EMP_PART_TIME=2 
 DAYZ_PER_MONTH=20
 TOTAL_MAX_HR=100
 
-#variables
 totalSalary=0 
 totalHr=0
-salary=0
 
-#Dictionary
-
-declare -A wages 
+ 
 
 function GetWorkingHours ()
 {
 	
 	for (( i=1; i<=$DAYZ_PER_MONTH; i++ ))
 	do
-#       echo "Total work hours is = " $totalHr
-
-#       echo "Total wages for month is =" $totalSalary
-
 	random=$((RANDOM%3))
 	case $random in
 
@@ -40,20 +30,14 @@ function GetWorkingHours ()
 	esac
 		
 	totalHr=$(( $totalHr + $EMP_HR ))
-	salary=$(( $EMP_WAGE_PER_HR * $EMP_HR ))
-
-
+	Salary=$(( $EMP_WAGE_PER_HR * $EMP_HR ))
+	echo "Daily Wages = " $Salary
 	totalSalary=$(( $EMP_WAGE_PER_HR * $totalHr  ))
-	wages[i]="$salary"
-
-#	echo "wages per day =" ${wages[i]}
-
-	wages[totalSalary]="$totalSalary"
-
-#	echo "totalSalary =" ${wages[totalSalary]}
 done
 	
 }
 
 GetWorkingHours 
 
+#	echo "Total work hours is = " $totalHr
+	echo "Total wages for month is =" $totalSalary
