@@ -8,13 +8,10 @@ TotalSalary=0
 Total_hr=0
 Total_Max_hr=100 
 
-function EmployeeManagement () {
-
-<<<<<<< HEAD
-	while [ $Total_hr -ne $Total_Max_hr  ]
-=======
-	while [ $Total_hr -le $Total_Max_hr  ]
->>>>>>> uc6_WagesFor100Hr
+function EmployeeManagement ()
+{
+	
+	while [ $Total_hr -le $Total_Max_hr ]
 	do
 	random=$((RANDOM%3))
 	case $random in
@@ -39,7 +36,5 @@ function EmployeeManagement () {
 
 EmployeeManagement
  echo "Total Salary for 100hr is " = $TotalSalary        
-<<<<<<< HEAD
-=======
 
->>>>>>> uc6_WagesFor100Hr
+ 
